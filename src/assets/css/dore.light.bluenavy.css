@@ -1840,7 +1840,7 @@ button {
 .logo {
   width: 110px;
   height: 35px;
-  background-position: center center;
+  background: url('../img/login/logogimnasio.png') no-repeat;
   margin: 0 auto;
 }
 @media (max-width: 767px) {
