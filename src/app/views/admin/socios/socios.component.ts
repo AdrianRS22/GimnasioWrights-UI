@@ -27,7 +27,6 @@ export class SociosComponent implements OnInit {
 
   ngOnInit(): void {
     this.dtOptions = {
-      pagingType: 'full_numbers',
       responsive: true
     };
   }
@@ -38,6 +37,10 @@ export class SociosComponent implements OnInit {
   }
 
   editarSocio(template: TemplateRef<any>){
+    this.modalRef = this._modalService.show(template);
+  }
+
+  limpiarSaldo(template: TemplateRef<any>){
     this.modalRef = this._modalService.show(template);
   }
 
