@@ -6,15 +6,15 @@ import { Component, OnInit, OnDestroy, Renderer2 } from '@angular/core';
 })
 export class AuthComponent implements OnInit, OnDestroy {
 
-  constructor(private renderer: Renderer2) { }
+  constructor(private _renderer: Renderer2) { }
 
   ngOnInit(): void {
-    this.renderer.addClass(document.body, 'background');
-    this.renderer.addClass(document.body, 'no-footer');
+    this._renderer.addClass(document.body, 'background');
+    this._renderer.addClass(document.body, 'no-footer');
   }
 
   ngOnDestroy(): void {
-    this.renderer.removeClass(document.body, 'background');
-    this.renderer.removeClass(document.body, 'no-footer');
+    this._renderer.removeClass(document.body, 'background');
+    this._renderer.removeClass(document.body, 'no-footer');
   }
 }

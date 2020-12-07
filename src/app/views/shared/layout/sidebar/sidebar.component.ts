@@ -19,9 +19,9 @@ export class SidebarComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   closedCollapseList = [];
 
-  constructor(private router: Router, private sidebarService: SidebarService, private activatedRoute: ActivatedRoute) 
+  constructor(private _router: Router, private _sidebarService: SidebarService, private _activatedRoute: ActivatedRoute) 
   {
-    this.subscription = this.sidebarService.getSidebar().subscribe(
+    this.subscription = this._sidebarService.getSidebar().subscribe(
       (res) => {
         this.sidebar = res;
       },
@@ -29,10 +29,10 @@ export class SidebarComponent implements OnInit, OnDestroy {
         console.error(`An error occurred: ${err.message}`);
       }
     );
-    this.router.events
+    this._router.events
       .pipe(
         filter((event) => event instanceof NavigationEnd),
-        map(() => this.activatedRoute),
+        map(() => this._activatedRoute),
         map((route) => {
           while (route.firstChild) {
             route = route.firstChild;
@@ -41,7 +41,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
         })
       )
       .subscribe((event) => {
-        const path = this.router.url.split('?')[0];
+        const path = this._router.url.split('?')[0];
         const paramtersLen = Object.keys(event.snapshot.params).length;
         const pathArr = path
           .split('/')
@@ -49,13 +49,13 @@ export class SidebarComponent implements OnInit, OnDestroy {
         this.currentUrl = pathArr.join('/');
       });
 
-    router.events
+      _router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
         const { containerClassnames } = this.sidebar;
         this.selectMenu();
         this.toggle();
-        this.sidebarService.setContainerClassnames(
+        this._sidebarService.setContainerClassnames(
           0,
           containerClassnames,
           this.sidebar.selectedMenuHasSubItems
@@ -69,7 +69,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
       this.selectMenu();
       const { containerClassnames } = this.sidebar;
       const nextClasses = this.getMenuClassesForResize(containerClassnames);
-      this.sidebarService.setContainerClassnames(
+      this._sidebarService.setContainerClassnames(
         0,
         nextClasses.join(' '),
         this.sidebar.selectedMenuHasSubItems
@@ -113,13 +113,13 @@ export class SidebarComponent implements OnInit, OnDestroy {
       menuItem && menuItem.subs && menuItem.subs.length > 0 ? true : false;
     if (isCurrentMenuHasSubItem !== this.sidebar.selectedMenuHasSubItems) {
       if (!isCurrentMenuHasSubItem) {
-        this.sidebarService.setContainerClassnames(
+        this._sidebarService.setContainerClassnames(
           0,
           containerClassnames,
           false
         );
       } else {
-        this.sidebarService.setContainerClassnames(
+        this._sidebarService.setContainerClassnames(
           0,
           containerClassnames,
           true
@@ -133,8 +133,8 @@ export class SidebarComponent implements OnInit, OnDestroy {
     const { containerClassnames } = this.sidebar;
     this.selectedParentMenu = parentMenu;
     this.viewingParentMenu = parentMenu;
-    this.sidebarService.changeSelectedMenuHasSubItems(false);
-    this.sidebarService.setContainerClassnames(0, containerClassnames, false);
+    this._sidebarService.changeSelectedMenuHasSubItems(false);
+    this._sidebarService.setContainerClassnames(0, containerClassnames, false);
   }
 
   openSubMenu(event: { stopPropagation: () => void }, menuItem: IMenuItem): void {
@@ -145,7 +145,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
 
     const selectedParent = menuItem.to;
     const hasSubMenu = menuItem.subs && menuItem.subs.length > 0;
-    this.sidebarService.changeSelectedMenuHasSubItems(hasSubMenu);
+    this._sidebarService.changeSelectedMenuHasSubItems(hasSubMenu);
     if (!hasSubMenu) {
       this.viewingParentMenu = selectedParent;
       this.selectedParentMenu = selectedParent;
@@ -160,7 +160,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
           currentClasses.includes('menu-sub-hidden') &&
           (menuClickCount === 2 || menuClickCount === 0)
         ) {
-          this.sidebarService.setContainerClassnames(
+          this._sidebarService.setContainerClassnames(
             3,
             containerClassnames,
             hasSubMenu
@@ -169,7 +169,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
           currentClasses.includes('menu-hidden') &&
           (menuClickCount === 1 || menuClickCount === 3)
         ) {
-          this.sidebarService.setContainerClassnames(
+          this._sidebarService.setContainerClassnames(
             2,
             containerClassnames,
             hasSubMenu
@@ -179,14 +179,14 @@ export class SidebarComponent implements OnInit, OnDestroy {
           !currentClasses.includes('menu-sub-hidden') &&
           (menuClickCount === 1 || menuClickCount === 3)
         ) {
-          this.sidebarService.setContainerClassnames(
+          this._sidebarService.setContainerClassnames(
             0,
             containerClassnames,
             hasSubMenu
           );
         }
       } else {
-        this.sidebarService.addContainerClassname(
+        this._sidebarService.addContainerClassname(
           'sub-show-temporary',
           containerClassnames
         );
@@ -201,7 +201,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
       .split(' ')
       .filter((x) => x !== '');
     if (currentClasses.includes('menu-sub-hidden') && menuClickCount === 3) {
-      this.sidebarService.setContainerClassnames(
+      this._sidebarService.setContainerClassnames(
         2,
         containerClassnames,
         this.sidebar.selectedMenuHasSubItems
@@ -211,7 +211,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
       currentClasses.includes('menu-mobile')
     ) {
       if (!(menuClickCount === 1 && !this.sidebar.selectedMenuHasSubItems)) {
-        this.sidebarService.setContainerClassnames(
+        this._sidebarService.setContainerClassnames(
           0,
           containerClassnames,
           this.sidebar.selectedMenuHasSubItems
@@ -232,9 +232,9 @@ export class SidebarComponent implements OnInit, OnDestroy {
     let nextClasses = classes.split(' ').filter((x: string) => x !== '');
     const windowWidth = window.innerWidth;
 
-    if (windowWidth < this.sidebarService.menuHiddenBreakpoint) {
+    if (windowWidth < this._sidebarService.menuHiddenBreakpoint) {
       nextClasses.push('menu-mobile');
-    } else if (windowWidth < this.sidebarService.subHiddenBreakpoint) {
+    } else if (windowWidth < this._sidebarService.subHiddenBreakpoint) {
       nextClasses = nextClasses.filter((x: string) => x !== 'menu-mobile');
       if (
         nextClasses.includes('menu-default') &&
@@ -270,7 +270,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
     }
     const { containerClassnames } = this.sidebar;
     const nextClasses = this.getMenuClassesForResize(containerClassnames);
-    this.sidebarService.setContainerClassnames(
+    this._sidebarService.setContainerClassnames(
       0,
       nextClasses.join(' '),
       this.sidebar.selectedMenuHasSubItems

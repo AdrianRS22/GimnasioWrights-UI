@@ -10,10 +10,10 @@ export class AdminComponent implements OnInit, OnDestroy {
   sidebar: ISidebar;
   subscription: Subscription;
 
-  constructor(private sidebarService: SidebarService) { }
+  constructor(private _sidebarService: SidebarService) { }
 
   ngOnInit(): void {
-    this.subscription = this.sidebarService.getSidebar().subscribe(
+    this.subscription = this._sidebarService.getSidebar().subscribe(
       res => {
         this.sidebar = res;
       },

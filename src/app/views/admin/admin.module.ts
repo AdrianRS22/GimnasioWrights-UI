@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AdminRoutingModule } from './admin.routing';
 
+import { DataTablesModule } from 'angular-datatables';
+
 import { AdminComponent } from './admin.component';
 import { LayoutModule } from '../shared/layout/layout.module';
 
@@ -10,7 +12,8 @@ import { LayoutModule } from '../shared/layout/layout.module';
     imports: [
       CommonModule,
       AdminRoutingModule,
-      LayoutModule
+      LayoutModule,
+      DataTablesModule
     ]
   })
   export class AdminModule { }
