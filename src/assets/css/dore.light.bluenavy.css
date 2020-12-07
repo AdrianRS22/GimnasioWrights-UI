@@ -3185,9 +3185,6 @@ main .container-fluid {
 }
 
 /* 20.Datatable */
-.dataTables_wrapper {
-  overflow: hidden;
-}
 
 table.dataTable td {
   padding-top: 20px;

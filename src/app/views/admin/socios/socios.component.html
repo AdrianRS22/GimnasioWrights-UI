@@ -1,550 +1,62 @@
 <div class="container-fluid">
-        <div class="row">
-            <div class="col-12">
-                <h1>Socios</h1>
+    <div class="row">
+        <div class="col-12">
+            <h1>Socios</h1>
 
-                <div class="top-right-button-container">
-                    <div class="btn-group">
-                        <button class="btn btn-outline-primary btn-lg dropdown-toggle" type="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Exportar
-                        </button>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" id="dataTablesCopy" href="#">Word</a>
-                            <a class="dropdown-item" id="dataTablesExcel" href="#">PDF</a>
-                            <a class="dropdown-item" id="dataTablesCsv" href="#">Excel</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mb-2">
-                    <a class="btn pt-0 pl-0 d-inline-block d-md-none" data-toggle="collapse" href="#displayOptions"
-                        role="button" aria-expanded="true" aria-controls="displayOptions">
-                        Mostrar filtros
-                        <i class="simple-icon-arrow-down align-middle"></i>
-                    </a>
-                    <div class="collapse dont-collapse-sm" id="displayOptions">
-                        <div class="d-block d-md-inline-block">
-                            <div class="search-sm d-inline-block float-md-left mr-1 mb-1 align-top">
-                                <input class="form-control" placeholder="Buscar" id="searchDatatable">
-                            </div>
-                        </div>
-                        <div class="float-md-right dropdown-as-select" id="pageCountDatatable">
-                            <span class="text-muted text-small">Mostrando 1-10 de 50 socios </span>
-                            <button class="btn btn-outline-dark btn-xs dropdown-toggle" type="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                10
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item active" href="#">10</a>
-                                <a class="dropdown-item" href="#">25</a>
-                                <a class="dropdown-item" href="#">50</a>
-                                <a class="dropdown-item" href="#">100</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <button class="btn btn-primary mb-2">
-                    Matricular Socio
-                </button>
-                <div class="separator"></div>
-            </div>
-        </div>
-
-        <div class="row">
-
-            <div class="col-12 mb-4 data-table-rows data-tables-hide-filter">
-                <table id="datatableRows" class="table-responsive nowrap" data-order="[[ 1, &quot;desc&quot; ]]">
-                    <thead>
-                        <tr>
-                            <th>Cédula</th>
-                            <th>Nombre</th>
-                            <th>Apellidos</th>
-                            <th>Sexo</th>
-                            <th>Fecha de nacimiento</th>
-                            <th>Teléfono</th>
-                            <th>Correo</th>
-                            <th>Tipo de Socio</th>
-                            <th>Tipo de afiliación</th>
-                            <th>Fecha de ingreso</th>
-                            <th>Estado</th>
-                            <th class="empty">Acción</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr valign=top>
-                            <td class="list-item-heading">
-                                <p><span class=rvts1>1</span></p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p><span class=rvts1>Dela</span></p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p><span class=rvts1>Load</span></p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p><span class=rvts1>F</span></p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p><span class=rvts1>28/7/1994</span></p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p><span class=rvts1>8586408671</span></p>
-                            </td>
-                            <td class="list-item-heading">
-                                dload0@ning.com
-                            </td>
-                            <td class="list-item-heading">
-                                <p><span class=rvts1>individual</span></p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p><span class=rvts1>estudiante</span></p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p><span class=rvts1>17/3/2018</span></p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p><span class=rvts1>inactivo</span></p>
-                            </td>
-                            <td class="list-item-heading">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">
-                                        Acción
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">Modificar</a>
-                                        <a class="dropdown-item" href="#">Remover</a>
-                                        <a class="dropdown-item" href="#">Consultar Asistencia</a>
-                                        <a class="dropdown-item" href="#">Limpiar Saldos</a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr valign=top>
-                            <td class="list-item-heading">
-                                <p>2</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>Darnall</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>Jenks</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>M</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>4/4/1978</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>9481274946</p>
-                            </td>
-                            <td class="list-item-heading">
-                                djenks1@google.ca
-                            </td>
-                            <td class="list-item-heading"><br>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>quincenal</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>15/4/2020</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>activo</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">
-                                        Acción
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">Modificar</a>
-                                        <a class="dropdown-item" href="#">Eliminar</a>
-                                        <a class="dropdown-item" href="#">Consultar Asistencia</a>
-                                        <a class="dropdown-item" href="#">Limpiar Saldos</a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr valign=top>
-                            <td class="list-item-heading">
-                                <p>3</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>Tony</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>Windridge</p>
-                            </td>
-                            <td class="list-item-heading"><br>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>29/4/1963</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>9726952325</p>
-                            </td>
-                            <td class="list-item-heading">
-                                twindridge2@hibu.com
-                            </td>
-                            <td class="list-item-heading"><br>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>cortesia</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>26/9/2018</p>
-                            </td>
-                            <td class="list-item-heading"><br>
-                            </td>
-                            <td class="list-item-heading">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">
-                                        Acción
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">Modificar</a>
-                                        <a class="dropdown-item" href="#">Eliminar</a>
-                                        <a class="dropdown-item" href="#">Consultar Asistencia</a>
-                                        <a class="dropdown-item" href="#">Limpiar Saldos</a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr valign=top>
-                            <td class="list-item-heading">
-                                <p>4</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>Neala</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>Galley</p>
-                            </td>
-                            <td class="list-item-heading"><br>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>8/8/1968</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>7695096394</p>
-                            </td>
-                            <td class="list-item-heading">
-                                ngalley3@dedecms.com
-                            </td>
-                            <td class="list-item-heading"><br>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>semanal</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>12/11/2019</p>
-                            </td>
-                            <td class="list-item-heading"><br>
-                            </td>
-                            <td class="list-item-heading">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">
-                                        Acción
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">Modificar</a>
-                                        <a class="dropdown-item" href="#">Eliminar</a>
-                                        <a class="dropdown-item" href="#">Consultar Asistencia</a>
-                                        <a class="dropdown-item" href="#">Limpiar Saldos</a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr valign=top>
-                            <td class="list-item-heading">
-                                <p>5</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>Rosabelle</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>Hanlin</p>
-                            </td>
-                            <td class="list-item-heading"><br>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>7/6/1984</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>4604481027</p>
-                            </td>
-                            <td class="list-item-heading">
-                                rhanlin4@latimes.com
-                            </td>
-                            <td class="list-item-heading"><br>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>semanal</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>7/5/2020</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>activo</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">
-                                        Acción
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">Modificar</a>
-                                        <a class="dropdown-item" href="#">Eliminar</a>
-                                        <a class="dropdown-item" href="#">Consultar Asistencia</a>
-                                        <a class="dropdown-item" href="#">Limpiar Saldos</a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr valign=top>
-                            <td class="list-item-heading">
-                                <p>6</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>Izaak</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>Plumbley</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>M</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>24/6/1969</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>8468474881</p>
-                            </td>
-                            <td class="list-item-heading">
-                                iplumbley5@lulu.com
-                            </td>
-                            <td class="list-item-heading"><br>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>mensual</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>21/12/2017</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>activo</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">
-                                        Acción
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">Modificar</a>
-                                        <a class="dropdown-item" href="#">Eliminar</a>
-                                        <a class="dropdown-item" href="#">Consultar Asistencia</a>
-                                        <a class="dropdown-item" href="#">Limpiar Saldos</a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr valign=top>
-                            <td class="list-item-heading">
-                                <p>7</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>Rafferty</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>Medd</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>M</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>15/4/1970</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>3868048914</p>
-                            </td>
-                            <td class="list-item-heading">
-                                rmedd6@theguardian.com
-                            </td>
-                            <td class="list-item-heading"><br>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>mensual</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>16/4/2017</p>
-                            </td>
-                            <td class="list-item-heading"><br>
-                            </td>
-                            <td class="list-item-heading">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">
-                                        Acción
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">Modificar</a>
-                                        <a class="dropdown-item" href="#">Eliminar</a>
-                                        <a class="dropdown-item" href="#">Consultar Asistencia</a>
-                                        <a class="dropdown-item" href="#">Limpiar Saldos</a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr valign=top>
-                            <td class="list-item-heading">
-                                <p>8</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>Trent</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>Sanbroke</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>M</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>6/8/1969</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>9777671365</p>
-                            </td>
-                            <td class="list-item-heading">
-                                tsanbroke7@squidoo.com
-                            </td>
-                            <td class="list-item-heading"><br>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>mensual</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>13/6/2017</p>
-                            </td>
-                            <td class="list-item-heading"><br>
-                            </td>
-                            <td class="list-item-heading">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">
-                                        Acción
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">Modificar</a>
-                                        <a class="dropdown-item" href="#">Eliminar</a>
-                                        <a class="dropdown-item" href="#">Consultar Asistencia</a>
-                                        <a class="dropdown-item" href="#">Limpiar Saldos</a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr valign=top>
-                            <td class="list-item-heading">
-                                <p>9</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>Park</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>Verny</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>M</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>10/1/1970</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>6043012362</p>
-                            </td>
-                            <td class="list-item-heading">
-                                pverny8@free.fr
-                            </td>
-                            <td class="list-item-heading"><br>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>trimestral</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>18/10/2019</p>
-                            </td>
-                            <td class="list-item-heading"><br>
-                            </td>
-                            <td class="list-item-heading">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">
-                                        Acción
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">Modificar</a>
-                                        <a class="dropdown-item" href="#">Eliminar</a>
-                                        <a class="dropdown-item" href="#">Consultar Asistencia</a>
-                                        <a class="dropdown-item" href="#">Limpiar Saldos</a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr valign=top>
-                            <td class="list-item-heading">
-                                <p>10</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>Eugenia</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>Abramamov</p>
-                            </td>
-                            <td class="list-item-heading"><br>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>28/5/1966</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>5943812985</p>
-                            </td>
-                            <td class="list-item-heading">
-                                eabramamov9@chronoengine.com
-                            </td>
-                            <td class="list-item-heading"><br>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>quincenal</p>
-                            </td>
-                            <td class="list-item-heading">
-                                <p>24/12/2019</p>
-                            </td>
-                            <td class="list-item-heading"><br>
-                            </td>
-                            <td class="list-item-heading">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">
-                                        Acción
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">Modificar</a>
-                                        <a class="dropdown-item" href="#">Eliminar</a>
-                                        <a class="dropdown-item" href="#">Consultar Asistencia</a>
-                                        <a class="dropdown-item" href="#">Limpiar Saldos</a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <div class="separator"></div>
+            <button class="btn btn-primary mb-3 mt-3">
+                Matricular Socio
+            </button>
         </div>
     </div>
+
+    <div class="card p-3">
+        <table datatable [dtOptions]="dtOptions" class="table" width="100%">
+            <thead>
+                <tr>
+                    <th>Cédula</th>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Sexo</th>
+                    <th>Fecha Nacimiento</th>
+                    <th>Teléfono</th>
+                    <th>Correo</th>
+                    <th>Tipo Socio</th>
+                    <th>Tipo Afiliación</th>
+                    <th>Fecha Ingreso</th>
+                    <th>Estado</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let socio of socios">
+                    <td>{{ socio.cedula }}</td>
+                    <td>{{ socio.nombre }}</td>
+                    <td>{{ socio.apellido1 }} {{ socio.apellido2 }}</td>
+                    <td>{{ socio.sexo }}</td>
+                    <td>{{ socio.fechaNacimiento }}</td>
+                    <td>{{ socio.telefono1 }}</td>
+                    <td>{{ socio.correo }}</td>
+                    <td>{{ socio.tipoSocio }}</td>
+                    <td>{{ socio.tipoAfiliacion }}</td>
+                    <td>{{ socio.fechaIngreso }}</td>
+                    <td>{{ socio.estado }}</td>
+                    <td class="btn-group" dropdown>
+                        <button id="button-animated" dropdownToggle type="button"
+                            class="btn btn-primary dropdown-toggle" aria-controls="dropdown-animated">
+                            Acción <span class="caret"></span>
+                        </button>
+                        <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu" role="menu"
+                            aria-labelledby="button-animated">
+                            <li role="menuitem"><a class="dropdown-item">Modificar</a></li>
+                            <li role="menuitem"><a class="dropdown-item">Eliminar</a></li>
+                            <li role="menuitem"><a class="dropdown-item">Consultar Asistencia</a></li>
+                            <li role="menuitem"><a class="dropdown-item">Limpiar Saldos</a></li>
+
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
