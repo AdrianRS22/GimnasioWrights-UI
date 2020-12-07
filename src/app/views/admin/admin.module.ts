@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AdminRoutingModule } from './admin.routing';
+
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { DataTablesModule } from 'angular-datatables';
 
@@ -17,7 +19,8 @@ import { LayoutModule } from '../shared/layout/layout.module';
       AdminRoutingModule,
       LayoutModule,
       DataTablesModule,
-      BsDropdownModule.forRoot()
+      BsDropdownModule.forRoot(),
+      ModalModule.forRoot()
     ]
   })
   export class AdminModule { }

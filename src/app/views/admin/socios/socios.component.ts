@@ -1,5 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Component, TemplateRef, OnInit } from '@angular/core';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 import { Socio } from '../../../models/Socio';
 
@@ -7,7 +7,12 @@ import { Socio } from '../../../models/Socio';
   selector: 'app-socios',
   templateUrl: './socios.component.html'
 })
-export class SociosComponent implements OnInit, OnDestroy {
+export class SociosComponent implements OnInit {
+
+  addSocio:Boolean;
+
+
+  modalRef: BsModalRef;
 
   dtOptions: DataTables.Settings = {};
   socios: Socio[] = [
@@ -18,25 +23,22 @@ export class SociosComponent implements OnInit, OnDestroy {
     new Socio('6898461729', 'Rosabelle', 'Hanlin', 'Apellido2', 'F', '7/6/1984', '4604481027', '7695096394', 'rhanlin4@latimes.com', 'individual', 'semanal', '17/3/2018', 'inactivo'),
   ];
 
-  dtTrigger: Subject<any> = new Subject<any>();
-
-  constructor() { }
+  constructor(private _modalService: BsModalService) { }
 
   ngOnInit(): void {
     this.dtOptions = {
       pagingType: 'full_numbers',
       responsive: true
     };
-
-    this.dtTrigger.next();
   }
 
-  eliminarSocio(cedulaSocio): void {
-
+  matricularSocio(template: TemplateRef<any>) {
+    this.addSocio = true;
+    this.modalRef = this._modalService.show(template);
   }
 
-  ngOnDestroy(): void {
-    this.dtTrigger.unsubscribe();
+  editarSocio(template: TemplateRef<any>){
+    this.modalRef = this._modalService.show(template);
   }
 
 }

@@ -4,14 +4,14 @@
             <h1>Socios</h1>
 
             <div class="separator"></div>
-            <button class="btn btn-primary mb-3 mt-3">
+            <button class="btn btn-primary mb-3 mt-3" (click)="matricularSocio(addEditCarneVirtual)">
                 Matricular Socio
             </button>
         </div>
     </div>
 
     <div class="card p-3">
-        <table datatable [dtOptions]="dtOptions" class="table" width="100%">
+        <table datatable [dtOptions]="dtOptions" class="table">
             <thead>
                 <tr>
                     <th>Cédula</th>
@@ -48,11 +48,10 @@
                         </button>
                         <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu" role="menu"
                             aria-labelledby="button-animated">
-                            <li role="menuitem"><a class="dropdown-item">Modificar</a></li>
+                            <li role="menuitem" (click)="editarSocio(addEditCarneVirtual)"><a class="dropdown-item">Modificar</a></li>
                             <li role="menuitem"><a class="dropdown-item">Eliminar</a></li>
                             <li role="menuitem"><a class="dropdown-item">Consultar Asistencia</a></li>
                             <li role="menuitem"><a class="dropdown-item">Limpiar Saldos</a></li>
-
                         </ul>
                     </td>
                 </tr>
@@ -60,3 +59,104 @@
         </table>
     </div>
 </div>
+
+<ng-template #addEditCarneVirtual>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">{{ addSocio ? 'Añadir Carné Virtual' : 'Editar Carné Virtual' }}</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form id="exampleForm" class="tooltip-label-right" novalidate>
+            <div class="form-group position-relative error-l-50">
+                <label>Cedula</label>
+                <input type="text" class="form-control" required>
+            </div>
+
+            <div class="form-group position-relative error-l-50">
+                <label>Nombre</label>
+                <input type="text" class="form-control" required>
+            </div>
+
+            <div class="form-group position-relative error-l-50">
+                <label>Primer Apellido</label>
+                <input type="text" class="form-control" required>
+            </div>
+
+            <div class="form-group position-relative error-l-50">
+                <label>Segundo Apellido</label>
+                <input type="text" class="form-control" required>
+            </div>
+
+            <div class="form-group position-relative error-l-50">
+                <label>Fecha de nacimiento</label>
+                <div class="input-group date" data-provide="datepicker">
+                    <input type="date" class="form-control">
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-th"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group position-relative error-l-50">
+                <label>Sexo</label>
+                <select class="custom-select" required>
+                    <option value=""></option>
+                    <option value="Femenino">Femenino</option>
+                    <option value="Masculino">Masculino</option>
+                </select>
+            </div>
+
+            <div class="form-group position-relative error-l-50">
+                <label>Teléfono 1</label>
+                <input type="text" class="form-control" required>
+            </div>
+
+            <div class="form-group position-relative error-l-50">
+                <label>Teléfono 2</label>
+                <input type="text" class="form-control" required>
+            </div>
+
+            <div class="form-group position-relative error-l-50">
+                <label>Correo electrónico</label>
+                <input type="text" class="form-control" required>
+            </div>
+
+            <div class="form-group position-relative error-l-50">
+                <label>Tipo de socio</label>
+                <select class="custom-select" required>
+                    <option value=""></option>
+                </select>
+            </div>
+
+            <div class="form-group position-relative error-l-50">
+                <label>Tipo de afiliación</label>
+                <select class="custom-select" required>
+                    <option value=""></option>
+                    <option value="Semanal">Semanal</option>
+                    <option value="quincenal">Quincenal</option>
+                    <option value="mensual">Mensual</option>
+                    <option value="trimestral">Trimestral</option>
+                    <option value="semestral">Semestral</option>
+                    <option value="anual">Anual</option>
+                    <option value="estudiante">Estudiante</option>
+                    <option value="especial">Especial</option>
+                    <option value="cortesia">Cortesía</option>
+                </select>
+            </div>
+
+            <div class="form-group position-relative error-l-50">
+                <label>Fecha de ingreso</label>
+                <div class="input-group date" data-provide="datepicker">
+                    <input type="date" class="form-control">
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-th"></span>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">{{ addSocio ? 'Añadir' : 'Editar' }}</button>
+        </form>
+    </div>
+</ng-template>
