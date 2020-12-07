@@ -9,6 +9,7 @@ import { MantenimientoComponent } from './mantenimiento/mantenimiento.component'
 import { ProductosComponent } from './productos/productos.component';
 import { ReportesComponent } from './reportes/reportes.component';
 import { RutinasComponent } from './rutinas/rutinas.component';
+import { ControlasistenciaComponent } from './controlasistencia/controlasistencia.component';
 
 
 const routes: Routes = [
@@ -21,7 +22,8 @@ const routes: Routes = [
             { path: 'mantenimiento', component: MantenimientoComponent },
             { path: 'productos', component: ProductosComponent },
             { path: 'reportes', component: ReportesComponent },
-            { path: 'rutinas', component: RutinasComponent}
+            { path: 'rutinas', component: RutinasComponent},
+            { path: 'control-asistencia/:id', component: ControlasistenciaComponent}
         ]
     }
 ];

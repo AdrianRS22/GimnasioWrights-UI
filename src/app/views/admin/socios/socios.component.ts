@@ -1,5 +1,6 @@
 import { Component, TemplateRef, OnInit } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { Router } from '@angular/router';
 
 import { Socio } from '../../../models/Socio';
 
@@ -23,7 +24,7 @@ export class SociosComponent implements OnInit {
     new Socio('6898461729', 'Rosabelle', 'Hanlin', 'Apellido2', 'F', '7/6/1984', '4604481027', '7695096394', 'rhanlin4@latimes.com', 'individual', 'semanal', '17/3/2018', 'inactivo'),
   ];
 
-  constructor(private _modalService: BsModalService) { }
+  constructor(private _modalService: BsModalService, private _router: Router) { }
 
   ngOnInit(): void {
     this.dtOptions = {
@@ -42,6 +43,10 @@ export class SociosComponent implements OnInit {
 
   limpiarSaldo(template: TemplateRef<any>){
     this.modalRef = this._modalService.show(template);
+  }
+
+  consultarAsistencia(){
+    this._router.navigate(['/admin/control-asistencia/1']);
   }
 
 }

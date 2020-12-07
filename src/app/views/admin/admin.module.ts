@@ -11,9 +11,10 @@ import { AdminComponent } from './admin.component';
 import { SociosComponent } from './socios/socios.component';
 
 import { LayoutModule } from '../shared/layout/layout.module';
+import { ControlasistenciaComponent } from './controlasistencia/controlasistencia.component';
 
 @NgModule({
-    declarations: [AdminComponent, SociosComponent],
+    declarations: [AdminComponent, SociosComponent, ControlasistenciaComponent],
     imports: [
       CommonModule,
       AdminRoutingModule,
