@@ -24,8 +24,6 @@
               "src/assets"
             ],
             "styles": [
-              "src/assets/font/iconsmind-s/css/iconsminds.css",
-              "src/assets/font/simple-line-icons/css/simple-line-icons.css",
               "src/assets/css/bootstrap.min.css",
               "src/assets/css/bootstrap-float-label.min.css",
               "src/assets/css/dore.light.bluenavy.css"
