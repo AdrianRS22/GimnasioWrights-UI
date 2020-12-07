@@ -1,111 +1,62 @@
-<div class="menu">
+<div class="menu" (click)="menuClicked($event)">
     <div class="main-menu">
-        <div class="scroll">
+        <perfect-scrollbar class="scroll" [config]="{suppressScrollX: true}">
             <ul class="list-unstyled">
-                <li id="pagosyventas">
-                    <a [routerLink]="['pagosyventas']">
-                        <i class="iconsminds-wallet"></i> Pagos y Ventas
-                    </a>
-                </li>
-                <li id="productos">
-                    <a [routerLink]="['productos']">
-                        <i class="iconsminds-basket-items"></i> Productos
-                    </a>
-                </li>
-                <li id="socios">
-                    <a [routerLink]="['socios']">
-                        <i class="iconsminds-male-female"></i> Socios
-                    </a>
-                </li>
-                <li id="reportes">
-                    <a href="#reportes">
-                        <i class="iconsminds-bar-chart-4"></i> Reportes
-                    </a>
-                </li>
-                <li id="mantenimiento">
-                    <a href="#mantenimiento">
-                        <i class="iconsminds-gear"></i> Mantenimiento
-                    </a>
-                </li>
-                <li id="rutinas">
-                    <a [routerLink]="['rutinas']">
-                        <i class="iconsminds-file"></i> Rutinas
-                    </a>
+                <li *ngFor="let item of filteredMenuItems(menuItems)"
+                    [ngClass]="{'active': (selectedParentMenu === item.to && viewingParentMenu === '') || viewingParentMenu === item.to}">
+                    <a *ngIf="item.newWindow" [href]="item.to" rel="noopener noreferrer" target="_blank">
+                        <i [ngClass]="item.icon"></i>{{item.label }}</a>
+                    <a *ngIf="!item.newWindow && item.subs &&  item.subs.length>0"
+                        (click)="openSubMenu($event,item); false" [href]="item.to">
+                        <i [ngClass]="item.icon"></i> {{item.label }}</a>
+                    <a *ngIf="!item.newWindow && (!item.subs || (item.subs &&  item.subs.length===0))"
+                        (click)="changeSelectedParentHasNoSubmenu(item.to); false" [routerLink]="item.to">
+                        <i [ngClass]="item.icon"></i> {{item.label }}</a>
+  
                 </li>
             </ul>
-        </div>
+        </perfect-scrollbar>
     </div>
-
     <div class="sub-menu">
-        <div class="scroll">
-            <ul class="list-unstyled" data-link="pagosyventas">
-                <li>
-                    <a href="pagos/cuotas.html">
-                        <i class="simple-icon-wallet"></i> <span class="d-inline-block">Matrícula</span>
+        <perfect-scrollbar class="scroll" [config]="{suppressScrollX: true}">
+            <ul class="list-unstyled" *ngFor="let item of filteredMenuItems(menuItems)" [attr.data-parent]="item.to"
+                [ngClass]="{'d-block': (selectedParentMenu === item.to && viewingParentMenu==='') || viewingParentMenu === item.to}">
+                <li *ngFor="let sub of filteredMenuItems(item.subs)"
+                    [ngClass]="{'active': currentUrl === sub.to ,'has-sub-item' : sub.subs&& sub.subs.length>0 }">
+                    <a *ngIf="sub.newWindow" [href]="sub.to" rel="noopener noreferrer" target="_blank">
+                        <i [ngClass]="sub.icon"></i>
+                        <span class="d-inline-block">{{sub.label }}</span>
                     </a>
-                </li>
-                <li>
-                    <a href="pagos/matricula.html">
-                        <i class="simple-icon-wallet"></i> <span class="d-inline-block">Cuotas</span>
+                    <a *ngIf="!sub.newWindow && (!sub.subs || sub.subs.length<=0)" [routerLink]="[sub.to]"
+                        routerLinkActive="active">
+                        <i [ngClass]="sub.icon"></i>
+                        <span class="d-inline-block">{{sub.label }}</span>
                     </a>
-                </li>
-                <li>
-                    <a href="pagos/plan-alimentacion.html">
-                        <i class="simple-icon-wallet"></i> <span class="d-inline-block">Plan Alimentación</span>
+                    <a (click)="toggleCollapse(sub.to)" *ngIf="sub.subs && sub.subs.length > 0"
+                      [ngClass]="{'rotate-arrow-icon opacity-50 c-pointer': true, 'collapsed': closedCollapseList.includes(sub.to)}">
+                        <i class="simple-icon-arrow-down"></i>
+                        <span class="d-inline-block">{{sub.label }}</span>
                     </a>
-                </li>
+                    <div [collapse]="closedCollapseList.includes(sub.to)"  [isAnimated]="true">
+                        <div *ngIf="sub.subs && sub.subs.length > 0">
+                            <ul class="list-unstyled inner-level-menu">
+                                <li *ngFor="let deepSub of filteredMenuItems(sub.subs)" [ngClass]="{'active': currentUrl === deepSub.to}">
+                                    <a *ngIf="deepSub.newWindow" [href]="deepSub.to" rel="noopener noreferrer"
+                                        target="_blank">
+                                        <i [ngClass]="deepSub.icon"></i>
+                                        <span class="d-inline-block">{{deepSub.label | translate}}</span>
+                                    </a>
+                                    <a *ngIf="!deepSub.newWindow && (!deepSub.subs || deepSub.subs.length<=0)"
+                                        [routerLink]="[deepSub.to]" routerLinkActive="active">
+                                        <i [ngClass]="deepSub.icon"></i>
+                                        <span class="d-inline-block">{{deepSub.label | translate}}</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
             </ul>
-            <ul class="list-unstyled" data-link="reportes">
-                <li>
-                    <a href="#">
-                        <i class="simple-icon-chart"></i> <span class="d-inline-block">Socios al día</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="simple-icon-chart"></i> <span class="d-inline-block">Asistencia</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="simple-icon-chart"></i> <span class="d-inline-block">Ingresos por membresía</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="simple-icon-chart"></i> <span class="d-inline-block">Ingresos por ventas</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="simple-icon-chart"></i> <span class="d-inline-block">Total de ingresos</span>
-                    </a>
-                </li>
-            </ul>
-
-            <ul class="list-unstyled" data-link="mantenimiento">
-                <li>
-                    <a href="#">
-                        <i></i> <span class="d-inline-block">Afiliaciones</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i></i> <span class="d-inline-block">Precio por matrícula</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i></i> <span class="d-inline-block">Precio por sesión</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i></i> <span class="d-inline-block">Facturas</span>
-                    </a>
-                </li>
-            </ul>
-
-        </div>
+        </perfect-scrollbar>
     </div>
-</div>
+  </div>
+  

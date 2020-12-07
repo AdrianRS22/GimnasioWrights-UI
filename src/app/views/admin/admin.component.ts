@@ -1,14 +1,30 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { SidebarService, ISidebar } from '../shared/layout/sidebar/sidebar.service';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html'
 })
-export class AdminComponent implements OnInit {
+export class AdminComponent implements OnInit, OnDestroy {
 
-  constructor() { }
+  sidebar: ISidebar;
+  subscription: Subscription;
+
+  constructor(private sidebarService: SidebarService) { }
 
   ngOnInit(): void {
+    this.subscription = this.sidebarService.getSidebar().subscribe(
+      res => {
+        this.sidebar = res;
+      },
+      err => {
+        console.error(`An error occurred: ${err.message}`);
+      }
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
 }
