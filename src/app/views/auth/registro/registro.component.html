@@ -1,0 +1,56 @@
+<div class="card auth-card">
+    <div class="position-relative image-side p-0"></div>
+    <div class="form-side">
+
+        <div id="accordion">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link" data-toggle="collapse"
+                            data-target="#collapseOne" aria-expanded="true"
+                            aria-controls="collapseOne">
+                            Por ID Socio
+                        </button>
+                    </h5>
+                </div>
+
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                    data-parent="#accordion">
+                    <div class="card-body">
+                        <label class="form-group has-float-label mb-4">
+                            <input class="form-control" type="password" placeholder="" />
+                            <span>ID Socio</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingTwo">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse"
+                            data-target="#collapseTwo" aria-expanded="false"
+                            aria-controls="collapseTwo">
+                            Por Código QR
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                    data-parent="#accordion">
+                    <div class="card-body">
+                        <label class="form-group has-float-label mb-4">
+                            <div id="qrcode text-center">
+                                <img src="https://www.codigos-qr.com/qr/php/qr_img.php?d=wwwhttp%3A%2F%2Fwww.estonoexiste.com%2F&s=6&e=m" />
+                            </div>
+                            <span>Código QR</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center mt-2">
+            <button class="btn btn-primary btn-lg btn-shadow" type="submit">Registrar</button>
+        </div>
+
+    </div>
+</div>
