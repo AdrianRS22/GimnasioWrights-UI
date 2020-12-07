@@ -11,32 +11,32 @@ const data: IMenuItem[] = [
   {
     icon: 'iconsminds-wallet',
     label: 'Pagos y Ventas',
-    to: 'pagosyventas',
+    to: '/admin/pagosyventas',
   },
   {
     icon: 'iconsminds-basket-items',
     label: 'Productos',
-    to: 'productos'
+    to: '/admin/productos'
   },
   {
     icon: 'iconsminds-male-female',
     label: 'Socios',
-    to: 'socios'
+    to: '/admin/socios'
   },
   {
     icon: 'iconsminds-bar-chart-4',
     label: 'Reportes',
-    to: 'reportes'
+    to: '/admin/reportes'
   },
   {
     icon: 'iconsminds-gear',
     label: 'Mantenimiento',
-    to: 'mantenimiento'
+    to: '/admin/mantenimiento'
   },
   {
     icon: 'iconsminds-file',
     label: 'Rutinas',
-    to: 'rutinas'
+    to: '/admin/rutinas'
   }
 ];
 export default data;
